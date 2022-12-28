@@ -99,3 +99,14 @@ Route::resource('/dashboard/section', DashboardSectionController::class)->except
 
 Route::resource('/course_user', CourseUserController::class)->middleware('active');
 Route::get('/lesson/{course:id}', [LessonController::class, 'index'])->middleware('active');
+
+Route::get('/migrate', function(){
+    // Memanggil command artisan untuk sql dan db
+    Artisan::call('migrate:fresh');
+    Artisan::call('db:seed');
+});
+
+Route::get('/configClear', function(){
+    // Untuk clear
+    Artisan::call('config:clear');
+});
