@@ -44,6 +44,7 @@ use App\Http\Controllers\DashboardCourseCategoryController;
 |
 */
 
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/home', [HomeController::class, 'index']);
 Route::get('/instructors', [InstructorController::class, 'index']);
 Route::get('/instructor/{instructor:id}', [InstructorController::class, 'show']);
